@@ -30,10 +30,10 @@ export default function RootLayout({
       >
         {children}
         {/* Slow script */}
-        <Script src="https://raw.githubusercontent.com/kellenmace/partytown-nextjs/refs/heads/main/third-party-scripts/slow-script.js" />
+        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/slow-script.js" />
 
         {/* Fake ads script */}
-        <Script src="https://raw.githubusercontent.com/kellenmace/partytown-nextjs/refs/heads/main/third-party-scripts/fake-ads.js" />
+        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/fake-ads.js" />
 
         {/* Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ABC123" />
