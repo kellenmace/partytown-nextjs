@@ -29,17 +29,20 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+
         {/* Slow script */}
-        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/slow-script.js" />
+        {/* <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/slow-script.js" /> */}
+        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs@ab9d7810d17c8324947771eb7f07b2cd8afc90a8/third-party-scripts/slow-script.js" />
 
         {/* Fake ads script */}
-        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/fake-ads.js" />
+        {/* <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/fake-ads.js" /> */}
+        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs@ab9d7810d17c8324947771eb7f07b2cd8afc90a8/third-party-scripts/fake-ads.js" />
 
         {/* Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ABC123" />
 
         {/* Intercom chat widget */}
-        <Script id="intercom-widget" strategy="afterInteractive">
+        <Script id="intercom-widget">
           {`
             const APP_ID = "Your-Workspace-ID"; // IMPORTANT: Replace with your workspace ID
             (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
