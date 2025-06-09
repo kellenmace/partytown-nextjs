@@ -31,14 +31,12 @@ export default function RootLayout({
         {children}
 
         {/* Slow script */}
-        {/* <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/slow-script.js" /> */}
-        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs@ab9d7810d17c8324947771eb7f07b2cd8afc90a8/third-party-scripts/slow-script.js" />
+        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/slow-script.js" />
 
         {/* Fake ads script */}
-        {/* <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/fake-ads.js" /> */}
-        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs@ab9d7810d17c8324947771eb7f07b2cd8afc90a8/third-party-scripts/fake-ads.js" />
+        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/fake-ads.js" />
 
-        {/* Google Analytics */}
+        {/* Google Tag Manager */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ABC123" />
 
         {/* Intercom chat widget */}
