@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Partytown } from "@qwik.dev/partytown/react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,27 +26,44 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Partytown debug={true} forward={["dataLayer.push"]} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
 
         {/* Slow script */}
-        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/slow-script.js" />
+        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/slow-script.js" type="text/partytown" />
 
         {/* Fake ads script */}
-        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/fake-ads.js" />
+        <Script src="https://cdn.jsdelivr.net/gh/kellenmace/partytown-nextjs/third-party-scripts/fake-ads.js" type="text/partytown" />
 
         {/* Google Tag Manager */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ABC123" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ABC123" type="text/partytown" />
+        <script
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-ABC123', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
 
         {/* Intercom chat widget */}
-        <Script id="intercom-widget">
+        <Script id="intercom-widget" type="text/partytown">
           {`
             const APP_ID = "Your-Workspace-ID"; // IMPORTANT: Replace with your workspace ID
             (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
           `}
         </Script>
+
       </body>
     </html>
   );
